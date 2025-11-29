@@ -327,3 +327,47 @@ body {
     padding: 2.9rem 1rem;
   }
 }
+/* Remove circle avatar container & allow character models to stand freely */
+.no-avatar-circle .testimonial-avatar {
+  display: none; /* disable old avatar container */
+}
+
+.character-img {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  margin-right: 1rem;
+}
+
+/* Adjust layout so the character stands next to the bubble */
+.testimonial-card {
+  display: flex;
+  align-items: flex-end; /* Align bottom of character to bubble */
+  gap: 1rem;
+}
+
+/* Make sure speech bubble fills remaining space */
+.testimonial-card .speech-bubble {
+  flex: 1;
+}
+
+/* On mobile: stack vertically for best readability */
+@media (max-width: 700px) {
+  .testimonial-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .character-img {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    width: 160px;
+  }
+
+  .speech-bubble::before {
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+    top: -10px;
+  }
+}
